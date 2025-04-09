@@ -24,13 +24,13 @@ document.getElementById('todoForm')!.addEventListener('submit', function (event:
 function updateTodoList(): void {
   const todoListElement = document.getElementById('todoList')!;
   todoListElement.innerHTML = ''; // Töm listan innan vi renderar den på nytt
-  
+
   todoList.getTodos().forEach((todo, index) => {
     const todoElement = document.createElement('li');
     todoElement.className = todo.completed ? 'completed' : ''; // Lägg till 'completed' om todo är klar
     todoElement.innerHTML = `
       ${todo.task} - Prioritet: ${todo.priority}
-      <button class="mark-completed" data-index="${index}">Markera som klar</button>
+      <button class="mark-completed" data-index="${index}">${todo.completed ? 'Avmarkera som klar' : 'Markera som klar'}</button>
       ${todo.completed ? `<button class="delete-todo" data-index="${index}">Ta bort uppgiften</button>` : ''}
     `;
     todoListElement.appendChild(todoElement);
@@ -42,8 +42,19 @@ function updateTodoList(): void {
     button.addEventListener('click', (event: Event) => {
       const index = (event.target as HTMLButtonElement).getAttribute('data-index');
       if (index !== null) {
-        todoList.markTodoCompleted(parseInt(index)); // Markera uppgift som klar
-        updateTodoList(); // Uppdatera listan efter att en uppgift markerats som klar
+        const todoIndex = parseInt(index);
+        const todo = todoList.getTodos()[todoIndex];
+
+        // Toggle mellan markera som klar och avmarkera som klar
+        if (todo.completed) {
+          todoList.markTodoIncomplete(todoIndex); // Avmarkera uppgiften
+          (event.target as HTMLButtonElement).innerText = 'Markera som klar'; // Uppdatera texten på knappen
+        } else {
+          todoList.markTodoCompleted(todoIndex); // Markera uppgiften som klar
+          (event.target as HTMLButtonElement).innerText = 'Avmarkera som klar'; // Uppdatera texten på knappen
+        }
+
+        updateTodoList(); // Uppdatera listan efter ändringen
       }
     });
   });

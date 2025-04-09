@@ -31,6 +31,13 @@ markTodoCompleted(todoIndex: number): void {
     }
   }
 
+  markTodoIncomplete(todoIndex: number): void {
+    if (this.todos[todoIndex]) {
+      this.todos[todoIndex].completed = false;
+      this.saveToLocalStorage();
+    }
+  }
+
   deleteTodo(todoIndex: number) {
     if (this.todos[todoIndex]) {
       this.todos.splice(todoIndex, 1);  // Ta bort Todo från arrayen

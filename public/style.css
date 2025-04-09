@@ -5,7 +5,6 @@ body {
     flex-direction: column;
     align-items: center;
     display: flex;
-    width: 100%;
 }
 
 h1 {
@@ -48,6 +47,10 @@ h2 {
 #todoList li {
     position: relative;
     padding-left: 10em;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    justify-content: space-between;
 }
 
 #todoList li::before {
@@ -66,7 +69,9 @@ h2 {
     
 }
 
-button {
+
+button.delete-todo,
+button.mark-completed {
     padding: 0.5em 1em;
     border-radius: 5px;
     transition: content 0.3s ease;
@@ -76,6 +81,16 @@ button {
     font-size: 0.8em;
 }
 
+button {
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    transition: content 0.3s ease;
+    background-color: #592d71;
+    color: white;
+    margin: 1em;
+    font-size: 1em;
+}
+
 button:hover {
     cursor: pointer;
     transform: scale(1.1);
@@ -83,8 +98,68 @@ button:hover {
 
 #priorityInput {
     padding: 0.5em 1em;
+    border: 2px solid black;
+    border-radius: 5px;
 }
 
 p {
     font-size: 1.2em;
+}
+
+@media (max-width: 700px) {
+    #todoList li {
+        padding-left: 3em;
+    }
+
+    button.delete-todo,
+button.mark-completed {
+    margin: 0.5em;
+}
+}
+
+@media (max-width: 555px) {
+    #todoList li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #todoList li::before {
+        content: '🔲';
+        position: absolute;
+        left: 0;
+        top: 10%;
+        transform: translateY(-50%);
+        font-size: 1.5em;
+    }
+    
+    #todoList li.completed::before {
+        content: '✔';
+        color: black;
+        left: 1.5%;
+        
+    }
+
+    button.mark-completed {
+        margin-top: 2em;
+    }
+
+    button.delete-todo {
+        margin-bottom: 2em;
+    }
+}
+
+@media (max-width: 320px) {
+    .container {
+        margin-top: 2em;
+    }
+
+    h2 {
+        margin-top: 2em;
+        font-size: 2em;
+}
+
+#todoList li::before {
+    top: 05%;
+}
+
 }
