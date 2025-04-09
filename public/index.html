@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Att göra-applikation</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Great+Vibes&family=Karla:ital,wght@0,200..800;1,200..800&family=Lato&family=MonteCarlo&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <script type="module" src="../dist/main.js"></script>
+  <script type="module" src="../dist/todolist.js"></script>
+  <script type="module" src="../dist/todo.js"></script>
+  
+</head>
+<body>
+    <h1>Min to do list</h1>
+    <div class="container">
+    <form id="todoForm">
+      <input type="text" id="taskInput" placeholder="Skriv in uppgiften som ska utföras här:" required />
+      
+      <p>Välj vilken prioritet som din uppgift ska ha:</p>
+      <select id="priorityInput">
+        <option value="1">Hög</option>
+        <option value="2">Medel</option>
+        <option value="3">Låg</option>
+      </select>
+      <button type="submit">Lägg till</button>
+    </form>
+
+    <h2>Uppgifter som ska utföras</h2>
+    <ul id="todoList"></ul>
+  </div>
+    
+</body>
+</html>

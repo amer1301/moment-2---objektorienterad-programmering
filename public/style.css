@@ -1,0 +1,90 @@
+body {
+    background: rgb(89, 45, 113);
+    background: linear-gradient(90deg, rgba(89, 45, 113, 1) 16%, rgba(252, 227, 248, 1) 50%, rgba(0, 232, 255, 1) 100%);
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    width: 100%;
+}
+
+h1 {
+    font-size: 3em;
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 3em;
+    font-size: 2.5em;
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
+
+.container {
+    margin-top: 5em;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#taskInput {
+    padding: 1em;
+    width: 15em;
+    border-radius: 5px;
+    align-self: center;
+}
+
+#todoList {
+    list-style-type: none;
+    font-size: 1.2em;
+}
+
+#todoList li {
+    position: relative;
+    padding-left: 10em;
+}
+
+#todoList li::before {
+    content: '🔲';
+    position: absolute;
+    left: 0;
+    top: 40%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+}
+
+#todoList li.completed::before {
+    content: '✔';
+    color: black;
+    left: 1.5%;
+    
+}
+
+button {
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    transition: content 0.3s ease;
+    background-color: #592d71;
+    color: white;
+    margin: 1em;
+    font-size: 0.8em;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#priorityInput {
+    padding: 0.5em 1em;
+}
+
+p {
+    font-size: 1.2em;
+}

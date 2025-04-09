@@ -1,0 +1,17 @@
+{
+  "name": "moment-2---objektorienterad-programmering",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "start public/index.html",  
+    "build": "tsc",                 
+    "dev": "tsc --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
